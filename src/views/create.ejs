@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://localhost:3001/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Ini create nya ya</h1>
+
+    <div>
+        <form>
+            <label for="id">ID:</label>
+            <input type="number" id="id" name="id">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title">
+            <label for="author">Author:</label>
+            <input type="text" id="author" name="author"></input>
+            <button id="submit-btn" type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        const submitBtn = document.getElementById('submit-btn');
+        const id = document.getElementById('id');
+        const title = document.getElementById('title');
+        const author = document.getElementById('author');
+
+        submitBtn.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            const data = {
+                id: id.value,
+                title: title.value,
+                author: author.value
+            }
+
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            }
+
+            fetch('/apis/posts', options)
+
+            id.value = ""
+            title.value = ""
+            author.value = ""
+
+        })
+
+
+    </script>
+</body>
+
+</html>
+
+
+
+<!-- 
+
+    // const submitBtn = document.getElementById('submit-btn');
+// const id = document.getElementById('id');
+// const title = document.getElementById('title');
+// const author = document.getElementById('author'); -->
+
+<!-- // const [submitBtn, id, title, author] = document.getElementById('submit-btn', 'id', 'title', 'author'); -->

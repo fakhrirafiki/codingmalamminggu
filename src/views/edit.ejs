@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://localhost:3001/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Ini edit nya ya</h1>
+
+    <div>
+        <form>
+            <label for="id">ID:</label>
+            <input type="number" id="id" name="id" value="<%= data.id %>" disabled>
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" value="<%= data.title %>">
+            <label for="author">Author:</label>
+            <input type="text" id="author" name="author" value="<%= data.author %>"></input>
+            <button id="submit-btn" type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>

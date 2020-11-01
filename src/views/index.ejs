@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://localhost:3001/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Menampilkan data dalam bentuk table</h3>
+    <h3>Jumlah data yang kita punya : <%= data.length %> </h3>
+
+    <% if (data.length > 0) { %>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>TITLE</th>
+                <th>AUTHOR</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% data.forEach(item => { %>
+            <tr>
+                <td class="id"><%= item.id %></td>
+                <td class="title"><%= item.title %></td>
+                <td class="author"><%= item.author %></td>
+                <td class="delete" data-doc="<%= item.id %>">delete</td>
+                <!-- <td class="edit" data-doc="<%= item.id %>">edit</td> -->
+                <% }) %>
+            </tr>
+        </tbody>
+    </table>
+    <% } else { %>
+    <p>There are no data to display...</p>
+    <% } %>
+
+    <script>
+        const deleteBtn = document.querySelectorAll('.delete');
+
+        deleteBtn.forEach(btn => {
+            const endpoint = `apis/posts/${btn.dataset.doc}`
+            btn.addEventListener('click', () => {
+                fetch(endpoint, { method: 'DELETE' })
+                    .then(response => response.json())
+                    .then(data => window.location.href = 'http://localhost:3001/')
+                    .catch(err => console.log(err))
+            })
+
+        });
+    </script>
+</body>
+
+</html>

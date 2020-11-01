@@ -1,0 +1,17 @@
+{
+  "name": "codingmalamminggu",
+  "version": "1.0.0",
+  "description": "koding malam minggu",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "desperete binar student",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1"
+  }
+}
